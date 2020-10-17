@@ -7,12 +7,13 @@ const answers = [
 ];
 const correct = 'お餅';
 const $button = document.getElementsByTagName('button');
+const buttonLength = $button.length;
 //クイズの問題文、選択肢を定義
 const setupQuiz = () => {
   document.getElementById('js-question').textContent = question;
 
   let buttonIndex = 0;
-  let buttonLength = $button.length;
+  
   while (buttonIndex < buttonLength) {
     $button[buttonIndex].textContent = answers[buttonIndex];
     buttonIndex++;
@@ -21,35 +22,35 @@ const setupQuiz = () => {
 //関数を呼び出し
 setupQuiz();
 
+const clickHandler = (e) => {
+  if (correct === e.target.textContent) {
+    window.alert('正解！');
+  } else {
+    window.alert('不正解！');
+  }
+};
 //ボタンをクリックしたら正誤判定
-document.getElementsByTagName('button')[0].addEventListener('click', () => {
-  if (correct === $button[0].textContent) {
-    alert('正解！');
-  } else {
-    alert('不正解！');
-  }
-});
+let handleIndex = 0;
 
-document.getElementsByTagName('button')[1].addEventListener('click', () => {
-  if (correct === $button[1].textContent) {
-    alert('正解！');
-  } else {
-    alert('不正解！');
-  }
+while (handleIndex < buttonLength) {
+  $button[handleIndex].addEventListener('click', (e) => {
+  clickHandler(e);
 });
+  handleIndex++;
+}
 
-document.getElementsByTagName('button')[2].addEventListener('click', () => {
-  if (correct === $button[2].textContent) {
-    alert('正解！');
-  } else {
-    alert('不正解！');
-  }
-});
+// $button[0].addEventListener('click', (e) => {
+//   clickHandler(e);
+// });
 
-document.getElementsByTagName('button')[3].addEventListener('click', () => {
-  if (correct === $button[3].textContent) {
-    alert('正解！');
-  } else {
-    alert('不正解！');
-  }
-});
+// $button [1].addEventListener('click', (e) => {
+//   clickHandler(e);
+// });
+
+// $button [2].addEventListener('click', (e) => {
+//   clickHandler(e);
+// });
+
+// $button [3].addEventListener('click', (e) => {
+//   clickHandler(e);
+// });
