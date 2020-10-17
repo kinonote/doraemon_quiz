@@ -6,16 +6,21 @@ const answers = [
   '焼き芋'
 ];
 const correct = 'お餅';
-
-//定数の文字列をHTMLに反映させる
-document.getElementById('js-question').textContent = question;
-
 const $button = document.getElementsByTagName('button');
+//クイズの問題文、選択肢を定義
+const setupQuiz = () => {
+  document.getElementById('js-question').textContent = question;
 
-$button[0].textContent = answers[0];
-$button[1].textContent = answers[1];
-$button[2].textContent = answers[2];
-$button[3].textContent = answers[3];
+  let buttonIndex = 0;
+  let buttonLength = $button.length;
+  while (buttonIndex < buttonLength) {
+    $button[buttonIndex].textContent = answers[buttonIndex];
+    buttonIndex++;
+  }
+}
+//関数を呼び出し
+setupQuiz();
+
 //ボタンをクリックしたら正誤判定
 document.getElementsByTagName('button')[0].addEventListener('click', () => {
   if (correct === $button[0].textContent) {
