@@ -52,10 +52,10 @@ setupQuiz();
 
 const clickHandler = (e) => {
   if (quiz[quizIndex].correct === e.target.textContent) {
-    window.alert('正解！');
+    window.alert('正解！ (*ゝ｀ω・)σ');
     score++;
   } else {
-    window.alert('不正解！');
+    window.alert('不正解！ °(°`ω´ °)°｡');
   }
   quizIndex++;
   if (quizIndex<quizLength) { 
@@ -63,7 +63,7 @@ const clickHandler = (e) => {
     setupQuiz();
   } else {
     //問題数がもうなければこちらを実行
-    window.alert('終了！あなたの正解数は'+score+'/'+quizLength+'です!');
+    window.alert('終了！あなたの正解数は'+score+'/'+quizLength+'です! (*σゝ｀ω・)σ');
   }
 
 };
