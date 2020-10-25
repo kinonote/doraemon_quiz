@@ -18,7 +18,25 @@ const quiz = [
       'ヘリトンボ'
     ],
     correct:'ヘリトンボ'
-  },  {
+  }, {
+    question: 'しずかの初期設定の名前は？',
+    answers: [
+      '静香',
+      'しずえ',
+      'しず美',
+      'しず子'
+    ],
+    correct:'しず子'
+  },{
+    question: 'のび太が睡眠に落ちる早さは何秒？',
+    answers: [
+      '0.093秒',
+      '0.93秒',
+      '1.93秒',
+      '2.93秒'
+    ],
+    correct:'0.93秒'
+  }, {
     question: 'ドラえもんの座高は？',
     answers: [
       '129.3cm',
@@ -29,6 +47,9 @@ const quiz = [
     correct:'100cm'
   }
 ];
+
+//ランダムに問題の順番が変わる
+quiz.sort(() => 0.5 - Math.random());
 
 const quizLength = quiz.length;
 let quizIndex = 0;
