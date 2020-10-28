@@ -22,7 +22,7 @@ const quiz = [
     question: 'しずかの初期設定の名前は？',
     answers: [
       '静香',
-      'しずえ',
+      'しず',
       'しず美',
       'しず子'
     ],
@@ -49,7 +49,11 @@ const quiz = [
 ];
 
 //ランダムに問題の順番が変わる
-quiz.sort(() => 0.5 - Math.random());
+
+Array.prototype.shuffle = function () {
+  this.sort(() => Math.random() - 0.5);
+}
+quiz.shuffle();
 
 const quizLength = quiz.length;
 let quizIndex = 0;
